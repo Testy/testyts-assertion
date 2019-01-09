@@ -1,0 +1,21 @@
+{
+    "name": "@testyts/assertion",
+    "version": "1.0.0",
+    "description": "Testy.Ts assertion library",
+    "main": "build/core.js",
+    "scripts": {
+        "test": "testyts"
+    },
+    "keywords": [
+        "assertion",
+        "test",
+        "testyts",
+        "typescript"
+    ],
+    "git": "https://github.com/Testy/testyts-assertion.git",
+    "author": "Antoine Boisier-Michaud",
+    "license": "ISC",
+    "devDependencies": {
+        "testyts": "^0.6.0"
+    }
+}
