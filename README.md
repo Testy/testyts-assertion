@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Testy/testyts-assertion.svg?branch=master)](https://travis-ci.org/Testy/testyts-assertion)
+
 # Testy.Ts Assertion
 
 Assertion library for [Testy.Ts](https://github.com/Testy/TestyTs).
