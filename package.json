@@ -16,6 +16,6 @@
     "author": "Antoine Boisier-Michaud",
     "license": "ISC",
     "devDependencies": {
-        "testyts": "^0.6.0"
+        "testyts": "0.7.1"
     }
 }

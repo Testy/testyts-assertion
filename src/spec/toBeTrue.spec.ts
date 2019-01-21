@@ -1,22 +1,22 @@
-import { testSuite, TestCase, test } from 'testyts';
+import { TestSuite, TestCase, Test } from 'testyts';
 import { expect } from '../lib/expect';
 
-@testSuite('Expect ToBeTrue Tests')
+@TestSuite('Expect ToBeTrue Tests')
 export class ExpectToBeTrue {
 
-    @test('true to be true')
+    @Test('true to be true')
     private trueToBeTrue() {
         expect.toBeTrue(true);
     }
 
-    @test('true not to be true to fail')
+    @Test('true not to be true to fail')
     private trueNotToBeTrue() {
         expect.toThrow(() => {
             expect.not.toBeTrue(true);
         });
     }
 
-    @test('To be true, should fail', [
+    @Test('To be true, should fail', [
         new TestCase('false', false),
         new TestCase('undefined', undefined),
         new TestCase('null', null),
@@ -27,7 +27,7 @@ export class ExpectToBeTrue {
         });
     }
 
-    @test('Not to be true, should succeed', [
+    @Test('Not to be true, should succeed', [
         new TestCase('false', false),
         new TestCase('undefined', undefined),
         new TestCase('null', null),

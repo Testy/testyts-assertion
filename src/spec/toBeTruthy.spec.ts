@@ -1,10 +1,10 @@
-import { testSuite, TestCase, test } from 'testyts';
+import { TestSuite, TestCase, Test } from 'testyts';
 import { expect } from '../lib/expect';
 
-@testSuite('Expect ToBeTruthy Tests')
+@TestSuite('Expect ToBeTruthy Tests')
 export class ExpectToBeTruthy {
 
-    @test('To be truthy, should succeed', [
+    @Test('To be truthy, should succeed', [
         new TestCase('true', true),
         new TestCase(`'0'`, '0'),
         new TestCase(`'false'`, 'false'),
@@ -16,7 +16,7 @@ export class ExpectToBeTruthy {
         expect.toBeTruthy(arg);
     }
 
-    @test('To be truthy, should fail', [
+    @Test('To be truthy, should fail', [
         new TestCase('false', false),
         new TestCase('zero', 0),
         new TestCase('empty string', ''),
@@ -30,7 +30,7 @@ export class ExpectToBeTruthy {
         });
     }
 
-    @test('Not to be truthy, should fail', [
+    @Test('Not to be truthy, should fail', [
         new TestCase('true', true),
         new TestCase(`'0'`, '0'),
         new TestCase(`'false'`, 'false'),
@@ -44,7 +44,7 @@ export class ExpectToBeTruthy {
         });
     }
 
-    @test('Not to be truthy, should succeed', [
+    @Test('Not to be truthy, should succeed', [
         new TestCase('false', false),
         new TestCase('zero', 0),
         new TestCase('empty string', ''),
