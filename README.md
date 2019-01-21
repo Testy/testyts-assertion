@@ -1,6 +1,6 @@
-# Testy
+# Testy.Ts Assertion
 
-Assertion library for Testy.Ts.
+Assertion library for [Testy.Ts](https://github.com/Testy/TestyTs).
 
 ## Basic usage
 
