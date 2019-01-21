@@ -1,5 +1,5 @@
 {
-    "name": "@testyts/assertion",
+    "name": "@testy/assertion",
     "version": "0.1.0",
     "description": "Testy.Ts assertion library",
     "main": "build/core.js",
