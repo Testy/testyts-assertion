@@ -1,6 +1,6 @@
 {
     "name": "@testy/assertion",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Testy.Ts assertion library",
     "main": "build/core.js",
     "scripts": {
