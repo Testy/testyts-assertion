@@ -1,3 +1,11 @@
 language: node_js
 node_js:
   - "8"
+
+env:
+  - CODECOV_TOKEN=de44d6ac-65d6-48af-bb3e-cd593d5581eb
+
+script:
+  - npm run test-coverage
+  - nyc --reporter=text-lcov > coverage.lcov
+  - codecov

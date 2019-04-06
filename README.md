@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Testy/testyts-assertion.svg?branch=master)](https://travis-ci.org/Testy/testyts-assertion)
+[![codecov](https://codecov.io/gh/Testy/testyts-assertion/branch/master/graph/badge.svg)](https://codecov.io/gh/Testy/testyts-assertion)
 
 # Testy.Ts Assertion
 

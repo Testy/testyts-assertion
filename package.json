@@ -5,6 +5,7 @@
     "main": "build/core.js",
     "scripts": {
         "build": "tsc",
+        "check-coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
         "test": "testyts"
     },
     "keywords": [
@@ -17,6 +18,25 @@
     "author": "Antoine Boisier-Michaud",
     "license": "ISC",
     "devDependencies": {
+        "codecov": "^3.3.0",
+        "nyc": "^13.3.0",
         "testyts": "0.7.1"
+    },
+    "nyc": {
+        "include": [
+            "src/lib/**/*.ts"
+        ],
+        "exclude": [
+            "src/spec/**/*.ts"
+        ],
+        "extension": [
+            ".ts"
+        ],
+        "reporter": [
+            "text-summary",
+            "html"
+        ],
+        "sourceMap": true,
+        "instrument": true
     }
 }
