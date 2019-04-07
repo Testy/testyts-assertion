@@ -49,51 +49,51 @@ class Expect {
         }
     }
 
-      /**
-     * Throws is actual is not greater than expected.
-     * @param actual Value chich is expected to be greater
-     * @param expected Value which actual is compared against
-     * @param message Custom assertion failure message.
-     */
-    public toBeGreater(actual: number, expected: number, message: string) {
-        if(actual <= expected) { 
-            throw new ExpectationError(message || `Expected ${actual} to be greater than ${expected}.`)
+    /**
+   * Throws is actual is not greater than expected.
+   * @param actual Value chich is expected to be greater
+   * @param expected Value which actual is compared against
+   * @param message Custom assertion failure message.
+   */
+    public toBeGreater(actual: number, expected: number, message?: string) {
+        if (!this.notFlag && actual <= expected || this.notFlag && actual > expected) {
+            throw new ExpectationError(message || `Expected ${actual} ${this.notFlag ? 'not ' : ''}to be greater than ${expected}.`)
         }
     }
 
-      /**
-     * Throws is actual is not greater than expected.
-     * @param actual Value chich is expected to be greater or equal
-     * @param expected Value which actual is compared against
-     * @param message Custom assertion failure message.
-     */
-    public toBeGreaterOrEqual(actual: number, expected: number, message: string) {
-        if(actual < expected) { 
-            throw new ExpectationError(message || `Expected ${actual} to be greater than or equal to ${expected}.`)
+    /**
+   * Throws is actual is not greater than expected.
+   * @param actual Value chich is expected to be greater or equal
+   * @param expected Value which actual is compared against
+   * @param message Custom assertion failure message.
+   */
+    public toBeGreaterOrEqual(actual: number, expected: number, message?: string) {
+        if (!this.notFlag && actual < expected || this.notFlag && actual >= expected) {
+            throw new ExpectationError(message || `Expected ${actual} ${this.notFlag ? 'not ' : ''}to be greater than or equal to ${expected}.`)
         }
     }
 
-      /**
-     * Throws is actual is not greater than expected.
-     * @param actual Value chich is expected to be lesser
-     * @param expected Value which actual is compared against
-     * @param message Custom assertion failure message.
-     */
-    public toBeLess(actual: number, expected: number, message: string) {
-        if(actual >= expected) { 
-            throw new ExpectationError(message || `Expected ${actual} to be less than ${expected}.`)
+    /**
+   * Throws is actual is not greater than expected.
+   * @param actual Value chich is expected to be lesser
+   * @param expected Value which actual is compared against
+   * @param message Custom assertion failure message.
+   */
+    public toBeLess(actual: number, expected: number, message?: string) {
+        if (!this.notFlag && actual >= expected || this.notFlag && actual < expected) {
+            throw new ExpectationError(message || `Expected ${actual} ${this.notFlag ? 'not ' : ''}to be less than ${expected}.`)
         }
     }
 
-      /**
-     * Throws is actual is not greater than expected.
-     * @param actual Value chich is expected to be lesser or equal
-     * @param expected Value which actual is compared against
-     * @param message Custom assertion failure message.
-     */
-    public toBeLessOrEqual(actual: number, expected: number, message: string) {
-        if(actual > expected) { 
-            throw new ExpectationError(message || `Expected ${actual} to be less than or equal to ${expected}.`)
+    /**
+   * Throws is actual is not greater than expected.
+   * @param actual Value chich is expected to be lesser or equal
+   * @param expected Value which actual is compared against
+   * @param message Custom assertion failure message.
+   */
+    public toBeLessOrEqual(actual: number, expected: number, message?: string) {
+        if (!this.notFlag && actual > expected || this.notFlag && actual <= expected) {
+            throw new ExpectationError(message || `Expected ${actual} ${this.notFlag ? 'not ' : ''}to be less than or equal to ${expected}.`)
         }
     }
 
