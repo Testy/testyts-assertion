@@ -3,6 +3,10 @@
     "version": "0.1.2",
     "description": "Testy.Ts assertion library",
     "main": "build/core.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Testy/testyts-assertion.git"
+    },
     "scripts": {
         "build": "tsc",
         "check-coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
