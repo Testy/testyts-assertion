@@ -27,4 +27,13 @@ export class ExpectToBeEqualTestSuite {
             expect.not.toBeEqual('a', 'a');
         });
     }
+    
+    @Test(`'NaN' not to equal 0`)
+    public nanNotToEqualZero() {
+        try {
+            expect.toBeEqual(NaN, 0);
+        } catch(err) {
+            expect.toBeEqual(err.message, 'Expected NaN to equal 0.');
+        }
+    }
 }

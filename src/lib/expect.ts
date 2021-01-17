@@ -31,7 +31,7 @@ class Expect {
      */
     public toBeEqual<T>(actual: T, expected: T, message?: string) {
         if (this.notFlag ? actual === expected : actual !== expected)
-            throw new ExpectationError(message || `Expected ${JSON.stringify(actual)} ${this.notFlag ? 'not' : ''} to equal ${JSON.stringify(expected)}.`);
+            throw new ExpectationError(message || `Expected ${this.stringify(actual)} ${this.notFlag ? 'not ' : ''}to equal ${this.stringify(expected)}.`);
     }
 
     /**
@@ -217,8 +217,16 @@ class Expect {
     public toBeIn<T>(item: T, array: T[], message?: string): any {
         const isIn = array.find(x => x === item);
         if (this.notFlag ? isIn : !isIn) {
-            throw new ExpectationError(message || `Expected ${item} to be in [${array.map(x => JSON.stringify(x)).join(', ')}]`);
+            throw new ExpectationError(message || `Expected ${item} to be in [${array.map(x => this.stringify(x)).join(', ')}]`);
         }
+    }
+
+    /** 
+     * Returns a string version of the given value. For objects, returns JSON.stringify(val). 
+     * For numbers and strings, returns `${val}`.
+     */
+    private stringify(val: unknown) {
+        return typeof val === 'object' ? this.stringify(val) : `${val}`;
     }
 }
 
