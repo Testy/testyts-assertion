@@ -16,28 +16,26 @@ export class ExpectToBeFalseTestSuite {
         });
     }
 
-    @Test('To be false, should fail', [
-        new TestCase('true', true),
-        new TestCase('undefined', undefined),
-        new TestCase('null', null),
-        new TestCase('empty array', []),
-        new TestCase('empty object', {}),
-        new TestCase('NaN', NaN)
-    ])
+    @Test('To be false, should fail')
+    @TestCase('true', true)
+    @TestCase('undefined', undefined)
+    @TestCase('null', null)
+    @TestCase('empty array', [])
+    @TestCase('empty object', {})
+    @TestCase('NaN', NaN)
     private toBeFalseFail(arg) {
         expect.toThrow(() => {
             expect.toBeFalse(arg);
         });
     }
 
-    @Test('Not to be false, should succeed', [
-        new TestCase('true', true),
-        new TestCase('undefined', undefined),
-        new TestCase('null', null),
-        new TestCase('empty array', []),
-        new TestCase('empty object', {}),
-        new TestCase('NaN', NaN)
-    ])
+    @Test('Not to be false, should succeed')
+    @TestCase('true', true)
+    @TestCase('undefined', undefined)
+    @TestCase('null', null)
+    @TestCase('empty array', [])
+    @TestCase('empty object', {})
+    @TestCase('NaN', NaN)
     private notToBeFalseSuccess(arg) {
         expect.not.toBeFalse(arg);
     }

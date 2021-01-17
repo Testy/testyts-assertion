@@ -1,28 +1,28 @@
-import { TestSuite, TestCase, Test } from 'testyts';
+import { TestSuite, TestCase, Test, FTest } from 'testyts';
 import { expect } from '../lib/expect';
 
 @TestSuite('Expect ToBeEqual Test Suite')
 export class ExpectToBeEqualTestSuite {
 
     @Test(`'a' to equal 'a'`)
-    private equal() {
+    public  equal() {
         expect.toBeEqual('a', 'a');
     }
 
     @Test(`'a' not to equal 'b'`)
-    private notEqual() {
+    public  notEqual() {
         expect.not.toBeEqual('a', 'b');
     }
 
     @Test(`'a' to equal 'b' to fail`)
-    private equalFails() {
+    public  equalFails() {
         expect.toThrow(() => {
             expect.toBeEqual('a', 'b');
         });
     }
 
     @Test(`'a' not to equal 'a' to fail`)
-    private notEqualFails() {
+    public  notEqualFails() {
         expect.toThrow(() => {
             expect.not.toBeEqual('a', 'a');
         });

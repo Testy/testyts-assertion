@@ -24,7 +24,7 @@
     "devDependencies": {
         "codecov": "^3.3.0",
         "nyc": "^13.3.0",
-        "testyts": "0.7.1"
+        "testyts": "1.1.0"
     },
     "nyc": {
         "include": [

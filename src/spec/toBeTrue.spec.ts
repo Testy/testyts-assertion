@@ -16,22 +16,20 @@ export class ExpectToBeTrue {
         });
     }
 
-    @Test('To be true, should fail', [
-        new TestCase('false', false),
-        new TestCase('undefined', undefined),
-        new TestCase('null', null),
-    ])
+    @Test('To be true, should fail')
+    @TestCase('false', false)
+    @TestCase('undefined', undefined)
+    @TestCase('null', null)
     private toBeTrueFail(arg) {
         expect.toThrow(() => {
             expect.toBeTrue(arg);
         });
     }
 
-    @Test('Not to be true, should succeed', [
-        new TestCase('false', false),
-        new TestCase('undefined', undefined),
-        new TestCase('null', null),
-    ])
+    @Test('Not to be true, should succeed')
+    @TestCase('false', false)
+    @TestCase('undefined', undefined)
+    @TestCase('null', null)
     private notToBeTrueSuccess(arg) {
         expect.not.toBeTrue(arg);
     }
