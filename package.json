@@ -1,46 +1,54 @@
 {
-    "name": "@testy/assertion",
-    "version": "0.1.2",
-    "description": "Testy.Ts assertion library",
-    "main": "build/core.js",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Testy/testyts-assertion.git"
-    },
-    "scripts": {
-        "build": "tsc",
-        "check-coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
-        "test": "testyts"
-    },
-    "keywords": [
-        "assertion",
-        "test",
-        "testyts",
-        "typescript"
+  "name": "@testy/assertion",
+  "version": "0.1.2",
+  "description": "Testy.Ts assertion library",
+  "main": "build/core.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Testy/testyts-assertion.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "check-coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
+    "lint": "eslint src/**/*.ts",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "test": "testyts"
+  },
+  "keywords": [
+    "assertion",
+    "test",
+    "testyts",
+    "typescript"
+  ],
+  "git": "https://github.com/Testy/testyts-assertion.git",
+  "author": "Antoine Boisier-Michaud",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
+    "codecov": "^3.3.0",
+    "eslint": "^7.18.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "nyc": "^13.3.0",
+    "prettier": "^2.2.1",
+    "testyts": "1.1.0"
+  },
+  "nyc": {
+    "include": [
+      "src/lib/**/*.ts"
     ],
-    "git": "https://github.com/Testy/testyts-assertion.git",
-    "author": "Antoine Boisier-Michaud",
-    "license": "ISC",
-    "devDependencies": {
-        "codecov": "^3.3.0",
-        "nyc": "^13.3.0",
-        "testyts": "1.1.0"
-    },
-    "nyc": {
-        "include": [
-            "src/lib/**/*.ts"
-        ],
-        "exclude": [
-            "src/spec/**/*.ts"
-        ],
-        "extension": [
-            ".ts"
-        ],
-        "reporter": [
-            "text-summary",
-            "html"
-        ],
-        "sourceMap": true,
-        "instrument": true
-    }
+    "exclude": [
+      "src/spec/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
+  }
 }
