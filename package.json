@@ -12,6 +12,7 @@
     "check-coverage": "nyc --reporter=lcov --reporter=html npm run test && nyc report",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
+    "format": "prettier --write .",
     "test": "testyts"
   },
   "keywords": [
