@@ -1,62 +1,65 @@
-import { TestSuite, TestCase, Test } from 'testyts';
+import { Test, TestSuite } from 'testyts';
 import { expect } from '../lib/expect';
 
 @TestSuite('Expect ToThrow Test Suite')
 export class ExpectToThrowTestSuite {
+  @Test('error to throw')
+  public errorToThrow(): void {
+    expect.toThrow(() => {
+      throw new Error('I threw.');
+    });
+  }
 
-    @Test('error to throw')
-    private errorToThrow() {
-        expect.toThrow(() => {
-            throw new Error('I threw.');
-        });
-    }
+  @Test('no error to throw to fail')
+  public noErrorToThrowToFail(): void {
+    expect.toThrow(() => {
+      expect.toThrow(() => {
+        return;
+      });
+    });
+  }
 
-    @Test('no error to throw to fail')
-    private noErrorToThrowToFail() {
-        expect.toThrow(() => {
-            expect.toThrow(() => { });
-        });
-    }
+  @Test('error not to throw to fail')
+  public errorNotToThrowToFail(): void {
+    expect.toThrow(() => {
+      expect.not.toThrow(() => {
+        throw new Error('I threw.');
+      });
+    });
+  }
 
-    @Test('error not to throw to fail')
-    private errorNotToThrowToFail() {
-        expect.toThrow(() => {
-            expect.not.toThrow(() => {
-                throw new Error('I threw.');
-            });
-        });
-    }
+  @Test('no error not to throw')
+  public noErrorNotToThrow(): void {
+    expect.not.toThrow(() => {
+      return;
+    });
+  }
 
-    @Test('no error not to throw')
-    private noErrorNotToThrow() {
-        expect.not.toThrow(() => { });
-    }
+  @Test('error to throw async')
+  public async errorToThrowAsync(): Promise<void> {
+    await expect.toThrowAsync(async () => {
+      throw new Error('I threw.');
+    });
+  }
 
-    @Test('error to throw async')
-    private async errorToThrowAsync() {
-        await expect.toThrowAsync(async () => {
-            throw new Error('I threw.');
-        });
-    }
+  @Test('no error to throw to fail async')
+  public async noErrorToThrowToFailAsync(): Promise<void> {
+    await expect.toThrowAsync(async () => {
+      await expect.toThrowAsync(async () => Promise.resolve(21));
+    });
+  }
 
-    @Test('no error to throw to fail async')
-    private async noErrorToThrowToFailAsync() {
-        await expect.toThrowAsync(async () => {
-            await expect.toThrowAsync(async () => Promise.resolve(21));
-        });
-    }
+  @Test('error not to throw to fail async')
+  public async errorNotToThrowToFailAsync(): Promise<void> {
+    await expect.toThrow(() => {
+      expect.not.toThrow(() => {
+        throw new Error('I threw.');
+      });
+    });
+  }
 
-    @Test('error not to throw to fail async')
-    private async errorNotToThrowToFailAsync() {
-        await expect.toThrow(() => {
-            expect.not.toThrow(() => {
-                throw new Error('I threw.');
-            });
-        });
-    }
-
-    @Test('no error not to throw async')
-    private async noErrorNotToThrowAsync() {
-        await expect.not.toThrow(async () => Promise.resolve(53));
-    }
+  @Test('no error not to throw async')
+  public async noErrorNotToThrowAsync(): Promise<void> {
+    await expect.not.toThrow(async () => Promise.resolve(53));
+  }
 }

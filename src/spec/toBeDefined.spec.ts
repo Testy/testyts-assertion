@@ -1,30 +1,29 @@
-import { TestSuite, TestCase, Test } from 'testyts';
+import { Test, TestSuite } from 'testyts';
 import { expect } from '../lib/expect';
 
 @TestSuite('Expect ToBeDefined Test Suite')
 export class ExpectToBeDefinedTestSuite {
+  @Test(`'a' to be defined`)
+  public aToBeDefined(): void {
+    expect.toBeDefined('a');
+  }
 
-    @Test(`'a' to be defined`)
-    private aToBeDefined() {
-        expect.toBeDefined('a');
-    }
+  @Test(`undefined to be defined to fail`)
+  public undefinedToBeDefinedToFail(): void {
+    expect.toThrow(() => {
+      expect.toBeDefined(undefined);
+    });
+  }
 
-    @Test(`undefined to be defined to fail`)
-    private undefinedToBeDefinedToFail() {
-        expect.toThrow(() => {
-            expect.toBeDefined(undefined);
-        });
-    }
+  @Test(`'a' not to be defined to fail`)
+  public aNotToBeDefinedToFail(): void {
+    expect.toThrow(() => {
+      expect.not.toBeDefined('a');
+    });
+  }
 
-    @Test(`'a' not to be defined to fail`)
-    private aNotToBeDefinedToFail() {
-        expect.toThrow(() => {
-            expect.not.toBeDefined('a');
-        });
-    }
-
-    @Test(`undefined not to be defined`)
-    private undefinedNotToBeDefinedToFail() {
-        expect.not.toBeDefined(undefined);
-    }
+  @Test(`undefined not to be defined`)
+  public undefinedNotToBeDefinedToFail(): void {
+    expect.not.toBeDefined(undefined);
+  }
 }

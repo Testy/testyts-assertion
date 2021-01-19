@@ -1,1 +1,1 @@
-export class ExpectationError extends Error { }
+export class ExpectationError extends Error {}
