@@ -40,14 +40,6 @@ jobs:
         env:
           NPM_TOKEN: ${{secrets.NPM_TOKEN}}
 
-      - name: Check coverage
-        run: npm run check-coverage
-          nyc --reporter=text-lcov > coverage.lcov
-          codecov
-        env:
-          NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-          CODECOV_TOKEN: ${{secrets.CODECOV_TOKEN}}
-
   coverage:
     name: Coverage
     runs-on: ubuntu-latest
